@@ -1,8 +1,8 @@
 {
-  "name": "novashop-sam",
+  "name": "novashop-aws-serverless",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Serverless order processing backend for NovaShop, built on AWS Lambda, DynamoDB, EventBridge, and Step Functions.",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-create": "esbuild src/functions/create-order/app.js --bundle --platform=node --target=node24 --outfile=dist/create-order/app.js",
