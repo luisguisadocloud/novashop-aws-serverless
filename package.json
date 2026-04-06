@@ -1,0 +1,34 @@
+{
+  "name": "novashop-sam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-create": "esbuild src/functions/create-order/app.js --bundle --platform=node --target=node24 --outfile=dist/create-order/app.js",
+    "build-get": "esbuild src/functions/get-order/app.js --bundle --platform=node --target=node24 --outfile=dist/get-order/app.js",
+    "build-reserve": "esbuild src/functions/reserve-inventory/app.js --bundle --platform=node --target=node24 --outfile=dist/reserve-inventory/app.js",
+    "build-authorize": "esbuild src/functions/authorize-payment/app.js --bundle --platform=node --target=node24 --outfile=dist/authorize-payment/app.js",
+    "build-complete": "esbuild src/functions/complete-order/app.js --bundle --platform=node --target=node24 --outfile=dist/complete-order/app.js",
+    "build-fail": "esbuild src/functions/fail-order/app.js --bundle --platform=node --target=node24 --outfile=dist/fail-order/app.js",
+    "zip-create": "zip -r dist/create-order/app.zip dist/create-order/app.js",
+    "zip-get": "zip -r dist/get-order/app.zip dist/get-order/app.js",
+    "zip-reserve": "zip -r dist/reserve-inventory/app.zip dist/reserve-inventory/app.js",
+    "zip-authorize": "zip -r dist/authorize-payment/app.zip dist/authorize-payment/app.js",
+    "zip-complete": "zip -r dist/complete-order/app.zip dist/complete-order/app.js",
+    "zip-fail": "zip -r dist/fail-order/app.zip dist/fail-order/app.js",
+    "build": "npm run build-create && npm run build-get && npm run build-reserve && npm run build-authorize && npm run build-complete && npm run build-fail",
+    "zip": "npm run zip-create && npm run zip-get && npm run zip-reserve && npm run zip-authorize && npm run zip-complete && npm run zip-fail"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1024.0",
+    "@aws-sdk/client-eventbridge": "^3.1024.0",
+    "@aws-sdk/lib-dynamodb": "^3.1024.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}
